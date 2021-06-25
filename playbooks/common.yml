@@ -1,6 +1,6 @@
 ---
 - name: update web and nfs servers
-  hosts: webservers, nfs,
+  hosts: webservers, nfs
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -20,3 +20,24 @@
     apt:
       name: wireshark
       state: latest
+
+
+- name: create directory, file and set timezone on all servers
+  hosts: webservers, nfs, db, lb
+  become: yes
+  tasks:
+
+    - name: create a directory
+      file:
+        path: /home/ubuntu/sample
+        state: directory
+
+    - name: create a file
+      file:
+        path: /home/ubuntu/sample/ansible.txt
+        state: touch
+
+    - name: set timezone
+      timezone: 
+        name: Africa/Lagos
+
