@@ -1,6 +1,6 @@
 ---
 # tasks file for weberver
----
+
 - name: install apache
   become: true
   ansible.builtin.yum:
