@@ -1,4 +1,4 @@
-- hosts: database
+- hosts: db
   remote_user: ec2_user
   become: yes
   become_user: root
