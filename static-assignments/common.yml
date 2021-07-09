@@ -1,6 +1,6 @@
 ---
-- name: update web and nfs servers
-  hosts: webservers, nfs
+- name: update webservers
+  hosts: webservers
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -12,7 +12,7 @@
 #-----------------------------------------------------
 - name: update db and LB servers
   hosts: db, lb
-  remote_user: ubuntu
+  remote_user: ec2_user
   become: yes
   become_user: root
   tasks:

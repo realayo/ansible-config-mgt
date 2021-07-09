@@ -1,0 +1,6 @@
+- include_tasks: nginx.yml
+  when: webserver == "nginx"
+
+# Install and configure Apache Web Server (httpd if Red Hat)
+- include_tasks: apache.yml
+  when: webserver == "apache"
