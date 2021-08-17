@@ -1,44 +1,31 @@
-pipeline {
-    agent any
+pipeline{
+	agent any
+	environment{
+		ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
+	}	
+	
 
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'echo "Building Stage"'
-        }
-      }
-    }
+	stages{
+		stage('Clean Up'){
+			steps{
+				cleanWs()
+			}
 
-    stage('Test') {
-      steps {
-        script {
-          sh 'echo "Testing Stage"'
-        }
-      }
-    }
+	}
 
-    stage('Package') {
-      steps {
-        script {
-          sh 'echo "Package Stage"'
-        }
-      }
-    }
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deployment Stage"'
-        }
-      }
-    }
+	stage('SCM Checkout'){
+			steps{
+				git branch: 'main', url: 'https://github.com/realayo/ansible-config-mgt'
+			}
 
-    stage('Clean Up') {
-      steps {
-        script {
-          sh 'echo "Clean up Stage"'
-        }
-      }
-    }
-    }
+	}
+
+	stages{
+		stage('Execute Ansible'){
+			steps{
+				ansiblePlaybook credentialsId: 'private-key','private-key1' disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.yml', playbook: 'playbooks/site.yml'
+			}
+
+	}
+		}
 }

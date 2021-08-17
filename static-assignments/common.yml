@@ -11,7 +11,7 @@
       state: latest
 #----------------------------------------------------------------
 - name: create directory, file and set timezone on all servers
-  hosts: webservers, db, lb
+  hosts: todo, nginx, tooling
   become: yes
   tasks:
 
