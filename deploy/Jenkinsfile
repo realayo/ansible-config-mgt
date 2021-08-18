@@ -20,13 +20,13 @@ pipeline{
 
 	    }   
 
-	    stage('Execute Ansible'){
+	    stage('Execute Ansible-Ubuntu'){
 		steps{
 			ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
 		    }
 
 	    }
-        stage('Execute Ansible'){
+        stage('Execute Ansible-Redhat'){
 		steps{
 			ansiblePlaybook credentialsId: 'private-key1', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
 		    }
