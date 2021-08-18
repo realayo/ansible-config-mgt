@@ -1,7 +1,7 @@
 ---
 - name: update webservers
-  hosts: webservers
-  remote_user: ec2-user
+  hosts: all
+  remote_user: ubuntu
   become: yes
   become_user: root
   tasks:
