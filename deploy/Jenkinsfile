@@ -11,22 +11,21 @@ pipeline{
 				cleanWs()
 			}
 
-	}
+	    }
 
-	stage('SCM Checkout'){
+	    stage('SCM Checkout'){
 			steps{
 				git branch: 'main', url: 'https://github.com/realayo/ansible-config-mgt'
 			}
 
-	}
+	    }   
 
-	stages{
-		stage('Execute Ansible'){
-			steps{
-				ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.yml', playbook: 'playbooks/site.yml'
-			}
+	    stage('Execute Ansible'){
+		steps{
+			ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.yml', playbook: 'playbooks/site.yml'
+		    }
 
-	}
-		}
-}
+	    }
+	
+    }
 }
