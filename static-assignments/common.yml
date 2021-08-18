@@ -1,5 +1,5 @@
 ---
-- name: update webservers
+- name: update servers
   hosts: all
   remote_user: ubuntu
   become: yes
