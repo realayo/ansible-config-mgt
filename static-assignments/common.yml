@@ -14,7 +14,6 @@
 - name: update db 
   hosts: db
   remote_user: ec2-user
-  gather facts: no
   become: yes
   become_user: root
   tasks:
