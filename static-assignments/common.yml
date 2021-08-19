@@ -1,7 +1,19 @@
 ---
 - name: update servers
-  hosts: all
+  hosts: tooling, todo, nginx
   remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    apt:
+      name: wireshark
+      state: latest
+
+
+- name: update db 
+  hosts: db
+  remote_user: ec2-user
   become: yes
   become_user: root
   tasks:
