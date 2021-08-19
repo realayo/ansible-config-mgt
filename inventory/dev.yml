@@ -7,9 +7,9 @@
 [nginx]
 172.31.17.54
 
-[db:vars]
-ansible_user=ec2-user
-ansible_python_interpreter=/usr/bin/python
+# [db:vars]
+# ansible_user=ec2-user
+# ansible_python_interpreter=/usr/bin/python
 
-[db]
-172.31.3.135
+# [db]
+# 172.31.3.135
