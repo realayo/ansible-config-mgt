@@ -12,4 +12,4 @@ ansible_user=ec2-user
 ansible_python_interpreter=/usr/bin/python
 
 [db]
-172.31.3.135
+172.31.3.135 ansible_user=ec2-user
