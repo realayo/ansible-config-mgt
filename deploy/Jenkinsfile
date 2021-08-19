@@ -26,9 +26,9 @@ pipeline{
 		    }
 
 	    }
-        stage('ec2-user'){
+        stage('Execute db '){
             steps{
-                ansiblePlaybook credentialsId: 'private-pem', installation: 'ansible', inventory: 'inventory/dev.yml', limit: 'db', playbook: 'playbooks/site.yml'
+                ansiblePlaybook credentialsId: 'private-pem', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', limit: 'db', playbook: 'playbooks/site.yml'
             }
         }
         // stage('Execute Ansible-Redhat'){
