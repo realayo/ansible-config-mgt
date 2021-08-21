@@ -29,7 +29,7 @@ pipeline{
 			    ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: '${inventory}', playbook: 'playbooks/site.yml'
 		    }
 
-	    // }
+	    }
         // stage('Execute db '){
         //     steps{
         //         ansiblePlaybook credentialsId: 'private-pem', disableHostKeyChecking: true, installation: 'ansible', inventory: '${inventory}', limit: 'db', playbook: 'playbooks/site.yml'
