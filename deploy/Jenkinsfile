@@ -26,13 +26,13 @@ pipeline{
 
 	    stage('Execute Ansible'){
 		    steps{
-			    ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: 'inventory/`${inventory}', limit: 'tooling, todo, nginx', playbook: 'playbooks/site.yml'
+			    ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: '${inventory}', limit: 'tooling, todo, nginx', playbook: 'playbooks/site.yml'
 		    }
 
 	    }
         stage('Execute db '){
             steps{
-                ansiblePlaybook credentialsId: 'private-pem', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/`${inventory}', limit: 'db', playbook: 'playbooks/site.yml'
+                ansiblePlaybook credentialsId: 'private-pem', disableHostKeyChecking: true, installation: 'ansible', inventory: '${inventory}', limit: 'db', playbook: 'playbooks/site.yml'
             }
         }
         // stage('Execute Ansible-Redhat'){
