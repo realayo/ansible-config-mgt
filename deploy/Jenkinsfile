@@ -1,5 +1,9 @@
 pipeline{
 	agent any
+
+	parameters {
+		string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+	}
 	environment{
 		ANSIBLE_CONFIG="${WORKSPACE}/deploy/.ansible.cfg"
 	}	
@@ -22,7 +26,7 @@ pipeline{
 
 	    stage('Execute Ansible'){
 		    steps{
-			    ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: 'inventory/dev.yml', limit: 'tooling, todo, nginx', playbook: 'playbooks/site.yml'
+			    ansiblePlaybook credentialsId: 'private-key', installation: 'ansible', inventory: 'inventory/${inventory}', limit: 'tooling, todo, nginx', playbook: 'playbooks/site.yml'
 		    }
 
 	    }
