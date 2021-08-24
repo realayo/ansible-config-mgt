@@ -16,13 +16,13 @@ pipeline{
 			}
 
 	    }
-		stage ('Scan and Build Jar File') {
-			steps {
-            	 withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarQubeScanner') { 
-      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.6.2.2472:sonar'
-            	}
-			}
-		}		
+		// stage ('Scan and Build Jar File') {
+		// 	steps {
+        //     	 withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarQubeScanner') { 
+      	// 			sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.6.2.2472:sonar'
+        //     	}
+		// 	}
+		// }		
 
 	    stage('SCM Checkout'){
 			steps{
