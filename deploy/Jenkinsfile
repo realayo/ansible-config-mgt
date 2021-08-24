@@ -17,6 +17,12 @@ pipeline{
 
 	    }
 
+		steps {
+            withSonarQubeEnv(installationName: 'Production SonarQubeScanner', credentialsId: 'SonarQubeToken') {
+                sh 'mvn clean package sonar:sonar'
+            }
+		}	
+
 	    stage('SCM Checkout'){
 			steps{
 				git branch: 'main', url: 'https://github.com/realayo/ansible-config-mgt'
