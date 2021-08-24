@@ -16,12 +16,13 @@ pipeline{
 			}
 
 	    }
-
-		steps {
-            withSonarQubeEnv(installationName: 'Production SonarQubeScanner', credentialsId: 'SonarQubeToken') {
-                sh 'mvn clean package sonar:sonar'
-            }
-		}	
+		stage ('Scan and Build Jar File') {
+			steps {
+            	withSonarQubeEnv(installationName: 'Production SonarQubeScanner', credentialsId: 'sonar') {
+                	sh 'mvn clean package sonar:sonar'
+            	}
+			}
+		}		
 
 	    stage('SCM Checkout'){
 			steps{
