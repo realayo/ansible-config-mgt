@@ -18,8 +18,8 @@ pipeline{
 	    }
 		stage ('Scan and Build Jar File') {
 			steps {
-            	 withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonaQubeScanner') { 
-      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+            	 withSonarQubeEnv(credentialsId: 'sonar', installationName: 'SonarQubeScanner') { 
+      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.6.2.2472:sonar'
             	}
 			}
 		}		
