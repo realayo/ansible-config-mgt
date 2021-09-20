@@ -7,10 +7,11 @@
   
   tasks:
   - name: ensure wireshark is at the latest version
-    update_cache: yes
     apt:
       name: wireshark
       state: latest
+      update_cache: yes
+      upgrade: yes
 
 
 - name: update tooling 
