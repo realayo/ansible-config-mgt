@@ -22,7 +22,7 @@
   tasks:
   - name: ensure wireshark is at the latest version
     yum:
-      name: wireshark
+      name: python3-apt, wireshark
       state: latest
       update_cache: yes
 #----------------------------------------------------------------
