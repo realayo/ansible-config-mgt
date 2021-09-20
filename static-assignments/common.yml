@@ -1,6 +1,6 @@
 ---
 - name: update servers
-  hosts: tooling, todo, nginx
+  hosts: db, todo, nginx
   remote_user: ubuntu
   become: yes
   become_user: root
@@ -11,8 +11,8 @@
       state: latest
 
 
-- name: update db 
-  hosts: db
+- name: update tooling 
+  hosts: tooling
   remote_user: ec2-user
   become: yes
   become_user: root
