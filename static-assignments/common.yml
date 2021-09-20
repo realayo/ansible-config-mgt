@@ -24,6 +24,7 @@
     yum:
       name: wireshark
       state: latest
+      update_cache: yes
 #----------------------------------------------------------------
 - name: create directory, file and set timezone on all servers
   hosts: todo, nginx, tooling
