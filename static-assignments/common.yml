@@ -10,8 +10,6 @@
     apt:
       name: wireshark
       state: latest
-      update_cache: yes
-      
 
 
 - name: update tooling 
@@ -19,15 +17,17 @@
   remote_user: ec2-user
   become: yes
   become_user: root
+
   tasks:
   - name: ensure wireshark is at the latest version
     yum:
-      name: python3-apt, wireshark
+      name: wireshark
       state: latest
-      update_cache: yes
+
+      
 #----------------------------------------------------------------
 - name: create directory, file and set timezone on all servers
-  hosts: todo, nginx, tooling
+  hosts: todo, nginx, tooling,db
   become: yes
   tasks:
 

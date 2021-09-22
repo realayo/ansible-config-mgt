@@ -1,4 +1,4 @@
-[tooling]
+[db]
 172.31.27.157
 
 [todo]
@@ -11,5 +11,5 @@
 # ansible_ssh_user=ec2-user
 # ansible_python_interpreter=/usr/bin/python3
 
-[db]
+[tooling]
 172.31.17.37 ansible_ssh_user=ec2-user
